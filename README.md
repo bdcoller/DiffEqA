@@ -1,3 +1,3 @@
 # DiffEqA
 
-Numerical for differential equation.
+Numerical integrator for differential equation.
