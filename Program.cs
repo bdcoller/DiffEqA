@@ -2,6 +2,7 @@
 // Program to integrate differential equations.
 //============================================================================
 using System;
+using System.Diagnostics;
 
 class Program
 {
@@ -24,13 +25,19 @@ class Program
         // }
         //s+= "," + x[0].ToString();
 
+        Stopwatch stopwatch = new Stopwatch();
+        stopwatch.Start();
+
+        for(int k = 0;k<1000;++k){
+            t = 0.0;
+
         //Pendulum initial condition
         x[0] = 1.0;
         x[1] = 0.0;
         s += "," + x[0].ToString() + "," + x[1].ToString();
 
         //time loop
-        Console.WriteLine(s);
+        //Console.WriteLine(s);
         while(t < tEnd - dt*0.5)
         {
             s = (t+dt).ToString();
@@ -44,8 +51,15 @@ class Program
             t = t + dt;
             //double sol = 20.0*(1.0-Math.Exp(-0.9*t));
             //s+= "," + sol.ToString();
-            Console.WriteLine(s);
+            //Console.WriteLine(s);
         }
+        }
+        stopwatch.Stop();
+        TimeSpan ts = stopwatch.Elapsed;
+        string elapsedTime = 
+            String.Format("{0:00}:{1:00}.{2:000}",ts.Minutes,
+            ts.Seconds,ts.Milliseconds);
+        Console.WriteLine("Running time: " + elapsedTime);
     }
 
     //------------------------------------------------------------------------
