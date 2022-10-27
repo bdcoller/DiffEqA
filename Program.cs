@@ -26,7 +26,7 @@ class Program
         //s+= "," + x[0].ToString();
 
         Stopwatch stopwatch = new Stopwatch();
-        stopwatch.Start();
+        stopwatch.Start();  // start the stopwatch
 
         for(int k = 0;k<1000;++k){
             t = 0.0;
